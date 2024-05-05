@@ -64,10 +64,20 @@ body, html {
     box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
 }
 /* Configurar las notas abajo*/
-.note-entry{
+/* Estilo para la nota que muestra solo dos líneas */
+.note-entry {
+    overflow: hidden;
+    max-height: 3em; /* Dos líneas más un poco de margen */
+    position: relative;
+    cursor: pointer; /* Cambiar el cursor para indicar que se puede hacer clic */
     margin-top: 15px;
     box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
     border-radius: 5px;
+}
+
+/* Estilo para mostrar el contenido completo al hacer clic en la nota */
+.note-entry.expand {
+    max-height: none; /* Mostrar todo el contenido */
 }
 
 /*Esta parte es sobre el icono para que gire */
