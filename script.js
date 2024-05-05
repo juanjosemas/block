@@ -31,6 +31,11 @@ document.addEventListener("DOMContentLoaded", function() {
             modal.style.display = "block"; // Mostrar el modal al hacer clic en el botón de borrar
         });
 
+        // Mostrar el contenido completo de la nota al hacer clic en ella
+        noteElement.addEventListener("click", function() {
+            noteElement.classList.toggle("expand");
+        });
+        
         // Añadir el botón de borrar a la nota
         noteElement.insertBefore(deleteButton, noteElement.firstChild);
         
