@@ -46,6 +46,7 @@ body, html {
 }
 /* Contenedor notas guardadas */
 #saved-notes {
+    padding: 10px;
     margin-top: 3px;
     font-size: 18px;
     Font-family: Piedra;
@@ -93,5 +94,48 @@ body, html {
       transform: scale(1) rotate(1440deg);
     }
 }
+
+/* Agrega estilos para el modal */
+.modal {
+    display: none; /* Ocultar el modal por defecto */
+    position: fixed; /* Posición fija para cubrir toda la pantalla */
+    z-index: 1; /* Ubicar el modal encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    overflow: auto; /* Permitir desplazamiento si el contenido es más largo que la ventana */
+    background-color: rgb(0,0,0,0.4); /* Fondo oscuro semitransparente */
+    font-family: Yellowtail;
+    font-size: 25px;
+}
+
+/* Estilos para el contenido del modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 25% auto; /* Centrar vertical y horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /*Ancho del contenido*/
+    border-radius: 20%;
+    text-align: center;
+    box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
+}
+
+/* Estilos para los botones dentro del modal */
+#confirm-delete, #cancel-delete {
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 20%;
+    background-color: gainsboro;
+    color: black;
+    box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
+    font-family: Piedra;
+    font-size: 20px;
+    font-style: italic;
+}
+
 
 
