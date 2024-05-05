@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", function() {
     var textArea = document.getElementById("text-area");
     var saveButton = document.getElementById("save-btn");
     var savedNotesContainer = document.getElementById("saved-notes");
+    var modal = document.getElementById("myModal");
+    var confirmDeleteBtn = document.getElementById("confirm-delete");
+    var cancelDeleteBtn = document.getElementById("cancel-delete");
+    var noteToDelete; // Variable para almacenar la nota que se va a borrar
 
     // Cargar contenido guardado al cargar la página
     if(localStorage.getItem("notes")) {
@@ -23,11 +27,8 @@ document.addEventListener("DOMContentLoaded", function() {
         deleteButton.textContent = "X";
         deleteButton.classList.add("delete-btn");
         deleteButton.addEventListener("click", function() {
-            savedNotesContainer.removeChild(noteElement);
-            var savedNotes = JSON.parse(localStorage.getItem("notes"));
-            var index = savedNotes.indexOf(noteContent);
-            savedNotes.splice(index, 1);
-            localStorage.setItem("notes", JSON.stringify(savedNotes));
+            noteToDelete = noteElement;
+            modal.style.display = "block"; // Mostrar el modal al hacer clic en el botón de borrar
         });
 
         // Añadir el botón de borrar a la nota
@@ -48,5 +49,27 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem("notes", JSON.stringify(savedNotes));
         
         textArea.value = ""; // Vaciar el área de texto después de guardar
+    });
+
+    // Cuando se confirme el borrado en el modal
+    confirmDeleteBtn.addEventListener("click", function() {
+        savedNotesContainer.removeChild(noteToDelete);
+        var savedNotes = JSON.parse(localStorage.getItem("notes"));
+        var index = savedNotes.indexOf(noteToDelete.textContent);
+        savedNotes.splice(index, 1);
+        localStorage.setItem("notes", JSON.stringify(savedNotes));
+        modal.style.display = "none"; // Ocultar el modal
+    });
+
+    // Cuando se cancele el borrado en el modal
+    cancelDeleteBtn.addEventListener("click", function() {
+        modal.style.display = "none"; // Ocultar el modal
+    });
+
+    // Cuando se haga clic en cualquier lugar fuera del modal, cerrar el modal
+    window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     });
 });
