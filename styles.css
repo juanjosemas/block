@@ -42,7 +42,7 @@ body, html {
     font-size: 15px;
     color: black;
     font-family: Piedra;
-    background-color: #4063ff;
+    background-color: red;
 }
 /* Contenedor notas guardadas */
 #saved-notes {
@@ -59,7 +59,7 @@ body, html {
     margin-left: 250px;
     font-family: Lobster;
     border-radius: 15px;
-    background-color: #00ff2d;
+    background-color: aqua;
     box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
 }
 /* Configurar las notas abajo*/
