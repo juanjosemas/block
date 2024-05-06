@@ -4,6 +4,10 @@ body, html {
     font-family: Arial, sans-serif;
     height: 100%;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('img/agua.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 /* Titulo e icono */
@@ -57,9 +61,11 @@ body, html {
     font-size: 20px;
     margin-bottom: 0;
     margin-top: 5px;
-    margin-left: 250px;
+    margin-left: 245px;
     font-family: Lobster;
     border-radius: 15px;
+    border-color: red;
+    border-width: 4px;
     background-color: aqua;
     box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.70);
 }
@@ -113,7 +119,7 @@ body, html {
     left: 0;
     top: 0;
     width: 100%; /* Ancho completo */
-    height: 100%; /* Altura completa */
+    height: 50%; /* Altura completa */
     overflow: auto; /* Permitir desplazamiento si el contenido es más largo que la ventana */
     background-color: rgb(0,0,0,0.4); /* Fondo oscuro semitransparente */
     font-family: Yellowtail;
