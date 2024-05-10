@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    var textArea = document.getElementById("text-area");
-    var saveButton = document.getElementById("save-btn");
-    var savedNotesContainer = document.getElementById("saved-notes");
-    var modal = document.getElementById("myModal");
-    var confirmDeleteBtn = document.getElementById("confirm-delete");
-    var cancelDeleteBtn = document.getElementById("cancel-delete");
-    var noteToDelete; // Variable para almacenar la nota que se va a borrar
+    let textArea = document.getElementById("text-area");
+    let saveButton = document.getElementById("save-btn");
+    let savedNotesContainer = document.getElementById("saved-notes");
+    let modal = document.getElementById("myModal");
+    let confirmDeleteBtn = document.getElementById("confirm-delete");
+    let cancelDeleteBtn = document.getElementById("cancel-delete");
+    let noteToDelete; // Variable para almacenar la nota que se va a borrar
 
     // Cargar contenido guardado al cargar la página
     if(localStorage.getItem("notes")) {
-        var savedNotes = JSON.parse(localStorage.getItem("notes"));
+        let savedNotes = JSON.parse(localStorage.getItem("notes"));
         savedNotes.forEach(function(noteContent) {
             addNoteElement(noteContent);
         });
@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Función para agregar una nueva nota al contenedor
     function addNoteElement(noteContent) {
-        var noteElement = document.createElement("div");
+        let noteElement = document.createElement("div");
         noteElement.textContent = noteContent;
         noteElement.classList.add("note-entry"); // Agregar la clase para aplicar el estilo
         
         // Botón para borrar la nota
-        var deleteButton = document.createElement("button");
+        let deleteButton = document.createElement("button");
         deleteButton.textContent = "X";
         deleteButton.classList.add("delete-btn");
         deleteButton.addEventListener("click", function() {
@@ -48,9 +48,13 @@ document.addEventListener("DOMContentLoaded", function() {
         var noteContent = textArea.value;
         addNoteElement(noteContent);
         
-        // Guardar contenido en el localStorage
-        var savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+        // Obtener las notas guardadas del localStorage o crear una lista vacía si no hay notas guardadas
+        let savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+        
+        // Agregar la nueva nota a la lista
         savedNotes.push(noteContent);
+        
+        // Guardar la lista actualizada en el localStorage
         localStorage.setItem("notes", JSON.stringify(savedNotes));
         
         textArea.value = ""; // Vaciar el área de texto después de guardar
@@ -59,8 +63,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Cuando se confirme el borrado en el modal
     confirmDeleteBtn.addEventListener("click", function() {
         savedNotesContainer.removeChild(noteToDelete);
-        var savedNotes = JSON.parse(localStorage.getItem("notes"));
-        var index = savedNotes.indexOf(noteToDelete.textContent);
+        let savedNotes = JSON.parse(localStorage.getItem("notes"));
+        let index = savedNotes.indexOf(noteToDelete.textContent);
         savedNotes.splice(index, 1);
         localStorage.setItem("notes", JSON.stringify(savedNotes));
         modal.style.display = "none"; // Ocultar el modal
