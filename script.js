@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    var textArea = document.getElementById("text-area");
-    var saveButton = document.getElementById("save-btn");
-    var savedNotesContainer = document.getElementById("saved-notes");
-    var modal = document.getElementById("myModal");
-    var confirmDeleteBtn = document.getElementById("confirm-delete");
-    var cancelDeleteBtn = document.getElementById("cancel-delete");
-    var notes = []; // Array para almacenar las notas
-    var noteToDeleteIndex; // Índice de la nota que se va a borrar
+    let textArea = document.getElementById("text-area");
+    let saveButton = document.getElementById("save-btn");
+    let savedNotesContainer = document.getElementById("saved-notes");
+    let modal = document.getElementById("myModal");
+    let confirmDeleteBtn = document.getElementById("confirm-delete");
+    let cancelDeleteBtn = document.getElementById("cancel-delete");
+    let notes = []; // Array para almacenar las notas
+    let noteToDeleteIndex; // Índice de la nota que se va a borrar
 
     // Cargar contenido guardado al cargar la página
     if(localStorage.getItem("notes")) {
@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Función para agregar una nueva nota al contenedor
     function addNoteElement(noteContent) {
-        var noteElement = document.createElement("div");
+        let noteElement = document.createElement("div");
         noteElement.textContent = noteContent;
         noteElement.classList.add("note-entry"); // Agregar la clase para aplicar el estilo
         
         // Botón para borrar la nota
-        var deleteButton = document.createElement("button");
+        let deleteButton = document.createElement("button");
         deleteButton.textContent = "X";
         deleteButton.classList.add("delete-btn");
         deleteButton.addEventListener("click", function() {
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Guardar contenido en el localStorage al hacer clic en el botón de guardar
     saveButton.addEventListener("click", function() {
-        var noteContent = textArea.value;
+        let noteContent = textArea.value;
         addNoteElement(noteContent);
         
         // Agregar la nueva nota al array
